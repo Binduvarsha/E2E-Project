@@ -18,6 +18,9 @@ from django.urls import path
 from main_app.EditResultView import EditResultView
 
 from . import hod_views, staff_views, student_views, views
+from . import views as student_views
+from django.urls import path,include,re_path
+from main_app import views
 
 urlpatterns = [
     path("", views.login_page, name='login_page'),
@@ -114,22 +117,15 @@ urlpatterns = [
 
 
     # Student
-    path("student/home/", student_views.student_home, name='student_home'),
-    path("student/view/attendance/", student_views.student_view_attendance,
-         name='student_view_attendance'),
-    path("student/apply/leave/", student_views.student_apply_leave,
-         name='student_apply_leave'),
-    path("student/feedback/", student_views.student_feedback,
-         name='student_feedback'),
-    path("student/view/profile/", student_views.student_view_profile,
-         name='student_view_profile'),
-    path("student/fcmtoken/", student_views.student_fcmtoken,
-         name='student_fcmtoken'),
-    path("student/view/notification/", student_views.student_view_notification,
-         name="student_view_notification"),
-    path('student/view/result/', student_views.student_view_result,
-         name='student_view_result'),
-    #path('', views.recommend_courses, name='recommend_courses'),
-    #path('dashboard/', views.dashboard, name='dashboard'),
-
+   path("student/home/", student_views.student_home, name='student_home'),
+    path("student/view_attendance/", student_views.student_view_attendance, name='student_view_attendance'),
+    path("student/apply_leave/", student_views.student_apply_leave, name='student_apply_leave'),
+    path("student/feedback/", student_views.student_feedback, name='student_feedback'),
+    path("student/view_profile/", student_views.student_view_profile, name='student_view_profile'),
+    path("student/fcmtoken/", student_views.student_fcmtoken, name='student_fcmtoken'),
+    path("student/view_notification/", student_views.student_view_notification, name='student_view_notification'),
+    path("student/view_result/", student_views.student_view_result, name='student_view_result'),
+    path("student/mcq_ask/", student_views.student_mcq_ask, name='student_mcq_ask'),
+    path("student/generate_mcq/", student_views.student_generate_mcq, name='student_generate_mcq'),
+    path("student/quiz_result/", student_views.student_quiz_result, name='student_quiz_result'),
 ]

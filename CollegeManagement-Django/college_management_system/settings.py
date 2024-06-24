@@ -42,9 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # My Apps
-    'chatbot',
     'main_app.apps.MainAppConfig'
 ]
 
@@ -102,6 +101,7 @@ DATABASES = {
     #     'PORT': '3307'
     # }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

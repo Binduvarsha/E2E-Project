@@ -520,6 +520,19 @@
                                             </a>
                                         </li>
 
+
+                                        <li class="nav-item">
+                                            {% url 'student_mcq_ask' as student_mcq_ask %}
+                                            <a href="{{student_mcq_ask}}"
+                                                class="nav-link {% if student_mcq_ask == request.path %} active {% endif %}">
+                                                <i class="nav-icon fas fa-comment-alt"></i>
+                                                <p>
+                                                    Customized Quizzess
+
+                                                </p>
+                                            </a>
+                                        </li>
+
                                         {% endif %}
 
 

@@ -7,3 +7,11 @@ psycopg2==2.8.6
 whitenoise==5.2.0
 Pillow
 requests
+spacy
+openai
+PyPDF2
+langdetect
+nltk
+fitz
+PyMuPDF
+textblob

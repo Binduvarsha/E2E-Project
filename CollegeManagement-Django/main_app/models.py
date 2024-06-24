@@ -194,3 +194,30 @@ def save_user_profile(sender, instance, **kwargs):
         instance.staff.save()
     if instance.user_type == 3:
         instance.student.save()
+
+
+class Note(models.Model):
+    subject = models.CharField(max_length=100)
+    topic = models.CharField(max_length=100)
+    notes_file = models.FileField(max_length=100)
+
+
+    def __str__(self):
+        return self.notes_file
+
+
+
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+class MCQQuestion(models.Model):
+    question = models.TextField()
+    option1 = models.CharField(max_length=255)
+    option2 = models.CharField(max_length=255)
+    option3 = models.CharField(max_length=255)
+    option4 = models.CharField(max_length=255)
+    correct_option = models.CharField(max_length=255)
+    difficulty = models.CharField(max_length=50)
+    uploaded_file = models.ForeignKey(UploadedFile, on_delete=models.CASCADE)

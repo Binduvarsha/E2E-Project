@@ -2,6 +2,8 @@ from django import forms
 from django.forms.widgets import DateInput, TextInput
 
 from .models import *
+from .models import Note
+from .models import UploadedFile
 
 
 class FormSettings(forms.ModelForm):
@@ -189,3 +191,28 @@ class EditResultForm(FormSettings):
     class Meta:
         model = StudentResult
         fields = ['session_year', 'subject', 'student', 'test', 'exam']
+
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ['subject','topic', 'notes_file']
+
+
+
+
+class ContentForm(forms.Form):
+    difficulty = forms.ChoiceField(choices=[('basic', 'Basic'), ('medium', 'Medium'), ('hard', 'Hard')])
+
+
+class FileUploadForm(forms.Form):
+    file = forms.FileField(
+        label='Select a file',
+        help_text='max. 42 megabytes'
+    )
+
+
+class UploadFileForm(forms.ModelForm):
+    class Meta:
+        model = UploadedFile
+        fields = ['file']
